@@ -1,0 +1,39 @@
+﻿@model IEnumerable<Shop.Application.DTOs.CategoryDto>
+@{
+    ViewData["Title"] = "Category";
+    Layout = "~/Areas/Administrator/Views/Shared/_Layout.cshtml";
+}
+
+<div class="pagetile">
+    <h1>Category</h1>
+    <nav>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item active">Category</li>
+        </ol>
+    </nav>
+</div>
+
+<section class="section">
+    <table class="table-bordered table table-hover">
+        <tr>
+            <th>ID</th>
+            <th>Category</th>
+            <th>Description</th>
+            <th>Action</th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.CategoryId</td>
+                <td>@item.CategoryName</td>
+                <td>@item.Description</td>
+                <td>
+                    <a class="btn btn-warning" href="/Administrator/Category/Edit/@item.CategoryId">Edit</a>
+                    <a class="btn btn-danger" href="/Administrator/Category/Delete/@item.CategoryId">Delete</a>
+                </td>
+            </tr>
+        }
+    </table>
+</section>
+
